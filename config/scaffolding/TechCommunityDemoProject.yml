@@ -17,12 +17,22 @@ packages:
   wpmServer: https://packages.webmethods.io
   wpmRegistry: licensed
 services:
-- serviceName: project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections:scratch
+- serviceName: project.techcommunitydemo.integrations:insertRecord
   packages:
   - name: TechCommunityDemoProject
     version: "1.0"
   - name: JcPublicTools
     version: "5.0"
+- serviceName: project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.operations.actions:insertRowIntoScrarch
+  packages:
+  - name: TechCommunityDemoProject
+    version: "1.0"
+  - name: JcPublicTools
+    version: "5.0"
+- serviceName: pub.date:getCurrentDate
+  packages:
+  - name: WmPublic
+    version: 11.1.0.0.1
 configurationVariables:
   jdbc.jdbcTestPool.snoopparms: ddtdbg.ProtocolTraceEnable=true;ddtdbg.ProtocolTraceMaxline=16;ddtdbg.ProtocolTraceLocation=logs/snoop/jdbcTestPool.log;ddtdbg.ProtocolTraceShowTime=true
   jdbc.jdbcTestPool.maxConns: "10"
