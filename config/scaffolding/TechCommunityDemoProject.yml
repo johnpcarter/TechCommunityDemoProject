@@ -17,49 +17,36 @@ packages:
   wpmServer: https://packages.webmethods.io
   wpmRegistry: licensed
 - name: JcHelloWorldAPI
+  version: "1.0"
   gitServerName: JohnBoy
   gitUrl: https://github.com/johnpcarter
   gitUsername: johnpcarter
   gitBranch: main
 services:
-- serviceName: project.techcommunitydemo.integrations:insertRecord
+- serviceName: project.techcommunitydemo.integrations:getRecords
   packages:
   - name: TechCommunityDemoProject
     version: "1.0"
-  - name: JcPublicTools
-    version: "5.0"
-- serviceName: project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.operations.actions:insertRowIntoScrarch
-  packages:
-  - name: TechCommunityDemoProject
+  - name: JcHelloWorldAPI
     version: "1.0"
   - name: JcPublicTools
     version: "5.0"
-- serviceName: pub.date:getCurrentDate
+- serviceName: jc.helloworld.pub:getAllLoggedMessages
   packages:
-  - name: WmPublic
-    version: 11.1.0.0.1
+  - name: JcHelloWorldAPI
+    version: "1.0"
+- serviceName: jc.helloworld._priv.jdbc:getLoggedMessages
+  packages:
+  - name: JcHelloWorldAPI
+    version: "1.0"
 configurationVariables:
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.blockingTimeout
-  : "1000"
-  jdbc.jdbcTestPool.waitingThread: "0"
-  jdbc.jdbcTestPool.minConns: "0"
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.transactionType
-  : NO_TRANSACTION
-  jdbc.jdbcTestPool.expireTime: "60000"
   jdbc.jdbcTestPool.snoopparms: ddtdbg.ProtocolTraceEnable=true;ddtdbg.ProtocolTraceMaxline=16;ddtdbg.ProtocolTraceLocation=logs/snoop/jdbcTestPool.log;ddtdbg.ProtocolTraceShowTime=true
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.password
-  : "{AES}Y5IgMqjfvkgbg7p5VUZztw=="
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.otherProperties
-  : loginTimeout=60;
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.heartBeatInterval
-  : "0"
   jdbc.jdbcTestPool.maxConns: "10"
   jdbc.jdbcTestPool.userid: root
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionEnabled
   : "false"
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.trustStore
   : ""
-  jdbc.jdbcTestPool.driverAlias: MySQL Database Java Connector Driver
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.minimumPoolSize
   : "1"
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.maximumPoolSize
@@ -67,29 +54,43 @@ configurationVariables:
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.user
   : scratch
   jdbc.jdbcTestPool.spyenabled: "false"
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.databaseName
-  : scratch
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.expireTimeout
   : "1000"
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.startupRetryCount
-  : "0"
   jdbc.jdbcTestPool.snoopenabled: "false"
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.portNumber
   : "3306"
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.dbType
   : MySQL
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.poolIncrementSize
-  : "1"
-  jdbc.jdbcTestPool.password: "{AES}er+I3U8nDVm8F4DBRST1+A=="
   jdbc.jdbcTestPool.spyparms: SpyAttributes=(log=(file)logs/spy/jdbcTestPool.log;logTName=yes;timestamp=yes)
-  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.serverName
-  : affectionate_ptolemy
-  jdbc.jdbcTestPool.dbURL: jdbc:mysql://mysql.test.local:3306/webm
-  jdbc.jdbcTestPool.poolThreshold: "0"
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.startupBackoffSecs
   : "10"
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.driverType
   : mysql_8_0_23
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.blockingTimeout
+  : "1000"
+  jdbc.jdbcTestPool.waitingThread: "0"
+  jdbc.jdbcTestPool.minConns: "0"
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.transactionType
+  : NO_TRANSACTION
+  jdbc.jdbcTestPool.expireTime: "60000"
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.password
+  : "{AES}Y5IgMqjfvkgbg7p5VUZztw=="
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.otherProperties
+  : loginTimeout=60;
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.heartBeatInterval
+  : "0"
+  jdbc.jdbcTestPool.driverAlias: MySQL Database Java Connector Driver
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.databaseName
+  : scratch
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.startupRetryCount
+  : "0"
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionManagerSettings.poolIncrementSize
+  : "1"
+  jdbc.jdbcTestPool.password: "{AES}er+I3U8nDVm8F4DBRST1+A=="
+  ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.serverName
+  : affectionate_ptolemy
+  jdbc.jdbcTestPool.dbURL: jdbc:mysql://mysql.test.local:3306/webm
+  jdbc.jdbcTestPool.poolThreshold: "0"
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.datasourceClass
   : com.mysql.cj.jdbc.MysqlDataSource
   ? artConnection.TechCommunityDemoProject.project.techcommunitydemo.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.scratch.connectionSettings.networkProtocol
