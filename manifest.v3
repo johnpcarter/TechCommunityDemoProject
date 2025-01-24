@@ -9,17 +9,18 @@
   <null name="replication_services"/>
   <record name="requires" javaclass="com.wm.util.Values">
     <value name="JcPublicTools">5.0</value>
+    <value name="JcHelloWorldAPI">1.0</value>
   </record>
   <null name="listACL"/>
   <value name="webappLoad">yes</value>
   <value name="reloadWithDependentPackage">yes</value>
-  <value name="build">18</value>
+  <value name="build">19</value>
   <null name="description"/>
   <value name="created_date">23-01-2025 09:19:16 GMT</value>
   <null name="extendedProperties"/>
   <null name="target_server_version"/>
   <value name="isProjectPackage">true</value>
-  <value name="lastUpdated">2025-01-23T14:06:09.605154899Z</value>
+  <value name="lastUpdated">2025-01-24T14:09:23.315125463Z</value>
   <value name="wmProjectId">fl4aa15d4fa00918bb36c3de</value>
   <value name="creator">John Carter</value>
 </Values>
