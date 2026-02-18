@@ -1,0 +1,15 @@
+version: "1.0"
+projectName: TechCommunityDemoProject
+runtimes:
+- runtimeAlias: LOG_RUNTIME
+  assets:
+  - name: Logger
+    type: REST
+    path: /log
+    action: POST
+    reference: fld_111332778_stage00.projects.fl5b8d61114bbfe819e3a34b.WmPackageServiceProvider.project.techcommunitydemo.integrations:insertRecord
+  - name: Logger
+    type: REST
+    path: /list
+    action: GET
+    reference: fld_111332778_stage00.projects.fl5b8d61114bbfe819e3a34b.WmPackageServiceProvider.project.techcommunitydemo.integrations:getRecords
